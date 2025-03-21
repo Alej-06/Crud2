@@ -161,7 +161,7 @@ public class Tema8CRUD {
 				}else if (!comprobarExpReg(textFieldApe.getText(), "^[a-zA-z]+$")){
 					JOptionPane.showMessageDialog(frmAgenda, "El apellido debe ser una cadena de caracteres alfabéticos","Advertencia",JOptionPane.ERROR_MESSAGE);
 				}else if (!comprobarExpReg(textFieldDNI.getText(), "^[0-9]{8}$")){
-					JOptionPane.showMessageDialog(frmAgenda, "El DNI debe ser un número entero de 9 caracteres","Advertencia",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(frmAgenda, "El DNI debe ser un número entero de 8 caracteres","Advertencia",JOptionPane.ERROR_MESSAGE);
 				}else {
 				try {
 					Connection con =ConnectionSingleton.getConnection();
@@ -209,7 +209,7 @@ public class Tema8CRUD {
 				}else if (!comprobarExpReg(textFieldApe.getText(), "^[a-zA-z]+$")){
 					JOptionPane.showMessageDialog(frmAgenda, "El apellido debe ser una cadena de caracteres alfabéticos","Advertencia",JOptionPane.ERROR_MESSAGE);
 				}else if (!comprobarExpReg(textFieldDNI.getText(), "^[0-9]{8}$")){
-					JOptionPane.showMessageDialog(frmAgenda, "El DNI debe ser un número entero de 9 caracteres","Advertencia",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(frmAgenda, "El DNI debe ser un número entero de 8 caracteres","Advertencia",JOptionPane.ERROR_MESSAGE);
 				}else {
 				try {
 					int codp=table.getSelectedRow();
@@ -254,7 +254,7 @@ public class Tema8CRUD {
 					TableModel model= table.getModel();
 					
 					Connection con =ConnectionSingleton.getConnection();
-					PreparedStatement updCont = con.prepareStatement("DELETE FROM contacto WHERE codigo=?");
+					PreparedStatement updCont = con.prepareStatement("DELETE FROM contacto WHERE dni=?");
 					updCont.setInt(1, (int) model.getValueAt(codp, 2));
 					updCont.executeUpdate();
 					updCont.close();
